@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.gd.connect.FileStreamSinkTaskTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-07-16T14:45:10" hostname="byoon.local" time="0.024">
+  <properties/>
+  <testcase name="testPutRecordInFile()" classname="org.gd.connect.FileStreamSinkTaskTest" time="0.024"/>
+  <system-out><![CDATA[File absolute path: /Users/byoon/dev/confluent/connector/fs-connector/test-output.log-20230716-234510732.log
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
