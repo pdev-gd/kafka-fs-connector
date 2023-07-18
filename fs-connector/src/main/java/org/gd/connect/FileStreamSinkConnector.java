@@ -6,17 +6,20 @@ import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.common.utils.AppInfoParser;
 import org.apache.kafka.connect.connector.Task;
 import org.apache.kafka.connect.sink.SinkConnector;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 public class FileStreamSinkConnector extends SinkConnector {
     public static final String FILE_CONFIG = "file";
     public static final String MAX_SIZE_CONFIG = "max.size";
     public static final long DEFAULT_MAX_SIZE = 10; // This is just an example, you can adjust this value as needed
+
+    private static final Logger log = LogManager.getLogger(FileStreamSinkConnector.class); // change here
 
     private String filename;
     private long maxSize;
@@ -30,6 +33,14 @@ public class FileStreamSinkConnector extends SinkConnector {
     public void start(Map<String, String> props) {
         filename = props.get(FILE_CONFIG);
         maxSize = Long.parseLong(props.getOrDefault(MAX_SIZE_CONFIG, String.valueOf(DEFAULT_MAX_SIZE)));
+
+        // add exception handling here
+        try {
+            // whatever your logic here
+        } catch (Exception e) {
+            log.error("Failed to start FileStreamSinkConnector due to error: ", e);
+            throw new RuntimeException("Failed to start FileStreamSinkConnector due to error: ", e);
+        }
     }
 
     @Override
